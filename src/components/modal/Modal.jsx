@@ -5,8 +5,7 @@ import css from './Modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const Modal = ({src,alt,onClick}) => {
-
+export const Modal = ({ src, alt, onClick }) => {
   useEffect(() => {
     const handleEscape = e => {
       if (e.code === 'Escape') {
@@ -20,7 +19,6 @@ export const Modal = ({src,alt,onClick}) => {
       window.removeEventListener('keydown', handleEscape);
     };
   }, [onClick]);
- 
 
   const handleCloseBackdrop = e => {
     if (e.target === e.currentTarget) {
@@ -28,17 +26,15 @@ export const Modal = ({src,alt,onClick}) => {
     }
   };
 
-  
-    return createPortal(
-      <div className={css.Overlay} onClick={handleCloseBackdrop}>
-        <div className={css.Modal}>
-          <img src={src} alt={alt} />
-        </div>
-      </div>,
-      modalRoot
-    );
-  }
-
+  return createPortal(
+    <div className={css.Overlay} onClick={handleCloseBackdrop}>
+      <div className={css.Modal}>
+        <img src={src} alt={alt} />
+      </div>
+    </div>,
+    modalRoot
+  );
+};
 
 Modal.propTypes = {
   src: PropTypes.string.isRequired,

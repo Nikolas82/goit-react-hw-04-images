@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './ImageGalleryItem.module.css';
 
- const ImageGalleryItem = ({ image, onClick }) => {
+const ImageGalleryItem = ({ image, onClick }) => {
   return (
     <li key={image.id}>
       <img

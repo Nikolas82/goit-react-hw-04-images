@@ -5,13 +5,11 @@ import PropTypes from 'prop-types';
 
 import css from './Searchbar.module.css';
 
-export const Searchbar = ({onSubmit}) => {
-  
-
-  const [searchImages,setSearchImages] = useState('')
+export const Searchbar = ({ onSubmit }) => {
+  const [searchImages, setSearchImages] = useState('');
 
   const handleSearchImages = e => {
-    setSearchImages(e.currentTarget.value );
+    setSearchImages(e.currentTarget.value);
   };
 
   const handleSubmit = e => {
@@ -25,30 +23,28 @@ export const Searchbar = ({onSubmit}) => {
     setSearchImages('');
   };
 
-  
-    return (
-      <>
-        <header className={css.searchbar}>
-          <form className={css.searchForm} onSubmit={handleSubmit}>
-            <button type="submit" className={css.searchFormButton}>
-              <span className={css.searchFormButtonLabel}>Search</span>
-            </button>
+  return (
+    <>
+      <header className={css.searchbar}>
+        <form className={css.searchForm} onSubmit={handleSubmit}>
+          <button type="submit" className={css.searchFormButton}>
+            <span className={css.searchFormButtonLabel}>Search</span>
+          </button>
 
-            <input
-              className={css.searchFormInput}
-              type="text"
-              autoComplete="off"
-              autoFocus
-              placeholder="Search images and photos"
-              value={searchImages}
-              onChange={handleSearchImages}
-            />
-          </form>
-        </header>
-      </>
-    );
-  }
-
+          <input
+            className={css.searchFormInput}
+            type="text"
+            autoComplete="off"
+            autoFocus
+            placeholder="Search images and photos"
+            value={searchImages}
+            onChange={handleSearchImages}
+          />
+        </form>
+      </header>
+    </>
+  );
+};
 
 Searchbar.propTypes = {
   onSubmit: PropTypes.func.isRequired,

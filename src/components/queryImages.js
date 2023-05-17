@@ -11,5 +11,3 @@ export const queryImages = async (searchImages, page) => {
     console.log(error);
   }
 };
-
-
